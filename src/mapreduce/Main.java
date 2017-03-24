@@ -35,9 +35,8 @@ public class Main {
 	final static String output = "F:\\outMap.txt";
 
 	final static String output1 = "F:\\outMapSorted.txt";
-	final static String location = "F:\\со c++\\map\\";
 	final static String locationMap = "F:\\со c++\\map\\Debug\\map.exe";
-	final static String locationDeruce = "F:\\со c++\\reduce\\Debug\\";
+	final static String locationDeruce = "F:\\со c++\\reduce\\Debug\\reduce.exe";
 	public static void main(String[] args) throws IOException {
 		ProcessBuilder bd = new ProcessBuilder(locationMap);
 		bd.redirectInput(new File (input));
