@@ -35,8 +35,9 @@ public class Main {
 	final static String output = "F:\\outMap.txt";
 
 	final static String output1 = "F:\\outMapSorted.txt";
+	final static String output2 = "F:\\outReduce.txt";
 	final static String locationMap = "F:\\со c++\\map\\Debug\\map.exe";
-	final static String locationDeruce = "F:\\со c++\\reduce\\Debug\\reduce.exe";
+	final static String locationReduce = "F:\\со c++\\reduce\\Debug\\reduce.exe";
 	public static void main(String[] args) throws IOException {
 		ProcessBuilder bd = new ProcessBuilder(locationMap);
 		bd.redirectInput(new File (input));
@@ -48,6 +49,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        process.destroy();
         ArrayList<Item> items = new ArrayList<>();
         File file = new File(output);
         try{
@@ -74,5 +76,16 @@ public class Main {
 			}
 			writer.close();
 		} catch (FileNotFoundException e) { }
+		ProcessBuilder bd1 = new ProcessBuilder(locationReduce);
+		bd1.redirectInput(new File (output1));
+		bd1.redirectOutput(new File(output2));
+        Process process1 = bd1.start();
+        try {
+			process1.waitFor();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        process1.destroy();
     }
 }
